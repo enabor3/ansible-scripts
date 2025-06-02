@@ -4,5 +4,5 @@
   gather_facts: no
 
   tasks:
-    - name: Ping Server
+    - name: Ping Servers
       ansible.builtin.ping:
