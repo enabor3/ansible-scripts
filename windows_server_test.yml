@@ -1,6 +1,6 @@
 ---
-- name: Test Connection
-  hosts: all
+- name: KMC Test Connection to Windows Server
+  hosts: Cisco
   gather_facts: no
 
   tasks:
