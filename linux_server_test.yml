@@ -1,5 +1,5 @@
 ---
-- name: Test Connection
+- name: Test Connection to Linux Server
   hosts: all
   gather_facts: no
 
