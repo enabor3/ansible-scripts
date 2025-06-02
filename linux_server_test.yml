@@ -1,5 +1,5 @@
 ---
-- name: KMC
+- name: KMC Test Connectivity
   hosts: all
   gather_facts: no
 

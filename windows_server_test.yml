@@ -1,5 +1,5 @@
 ---
-- name: KMC
+- name: KMC Test Connectivity
   hosts: Cisco
   gather_facts: no
 
