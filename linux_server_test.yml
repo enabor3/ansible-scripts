@@ -1,5 +1,5 @@
 ---
-- name: KMC Test Connection to Linux Server
+- name: KMC
   hosts: all
   gather_facts: no
 

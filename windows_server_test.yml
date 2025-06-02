@@ -1,5 +1,5 @@
 ---
-- name: KMC Test Connection to Windows Server
+- name: KMC
   hosts: Cisco
   gather_facts: no
 
