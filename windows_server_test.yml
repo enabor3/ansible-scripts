@@ -1,8 +1,34 @@
 ---
-- name: KMC Test Connectivity
+- name: KMC Windows Server Info
   hosts: Windows
   gather_facts: no
 
   tasks:
     - name: Ping Servers
       ansible.builtin.ping:
+
+    - name: Get Hostname
+      win_shell: hostname
+      register: hostname_out
+
+    - name: Show Hostname
+      debug:
+        var: hostname_out.stdout
+
+    - name: Get OS Version
+      win_shell: |
+        (Get-CimInstance Win32_OperatingSystem).Caption
+      register: os_out
+
+    - name: Show OS Version
+      debug:
+        var: os_out.stdout
+
+    - name: Get IP Address
+      win_shell: |
+        (Get-NetIPAddress -AddressFamily IPv4 | Where-Object {$_.InterfaceAlias -notlike "*Loopback*"} | Select-Object -First 1 -ExpandProperty IPAddress)
+      register: ip_out
+
+    - name: Show IP Address
+      debug:
+        var: ip_out.stdout
