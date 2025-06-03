@@ -1,6 +1,6 @@
 ---
 - name: KMC Test Connectivity
-  hosts: Cisco
+  hosts: Windows
   gather_facts: no
 
   tasks:

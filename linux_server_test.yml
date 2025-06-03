@@ -1,8 +1,20 @@
 ---
 - name: KMC Test Connectivity
-  hosts: all
+  hosts: Linux
   gather_facts: no
 
   tasks:
     - name: Ping Server
       ansible.builtin.ping:
+
+    - name: Show Hostname
+      debug:
+        var: ansible_hostname
+
+    - name: Show OS Distribution
+      debug:
+        var: ansible_distribution
+
+    - name: Show Default IP Address
+      debug:
+        var: ansible_default_ipv4.address
