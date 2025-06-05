@@ -1,5 +1,5 @@
 ---
-- name: KMC Windows Server Info
+- name: KMC Windows Server Information
   hosts: Windows
   gather_facts: no
 

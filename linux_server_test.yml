@@ -1,5 +1,5 @@
 ---
-- name: KMC Test Connectivity
+- name: KMC Linux Server Information
   hosts: Linux
   gather_facts: no
 
