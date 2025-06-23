@@ -10,23 +10,3 @@
     - name: Get Hostname
       ansible.windows.win_command: hostname
       register: hostname_out
-
-    - name: Show Hostname
-      ansible.builtin.debug:
-        var: hostname_out.stdout
-
-    - name: Get OS Version
-      ansible.windows.win_command: ver
-      register: os_out
-
-    - name: Show OS Version
-      ansible.builtin.debug:
-        var: os_out.stdout
-
-    - name: Get IP Address
-      ansible.windows.win_command: ipconfig
-      register: ip_out
-
-    - name: Show IP Address
-      ansible.builtin.debug:
-        var: ip_out.stdout
