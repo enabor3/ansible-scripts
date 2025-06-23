@@ -7,10 +7,10 @@
     - name: Ping
       ansible.windows.win_ping:
 
-    - name: Get Hostname
-      ansible.windows.win_command: hostname
-      register: hostname_out
+    - name: Get the hostname using win_shell
+      ansible.windows.win_shell: hostname
+      register: hostname_result
 
-    - name: Show Hostname
+    - name: Show the hostname
       ansible.builtin.debug:
-        var: hostname_out.stdout
+        var: hostname_result.stdout
