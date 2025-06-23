@@ -1,16 +1,16 @@
----
 - name: KMC Windows Server Information
   hosts: Windows
-  gather_facts: no
+  gather_facts: 'no'
 
   tasks:
     - name: Ping Windows
       ansible.windows.win_ping:
 
+        null
     - name: Get computer hostname
       ansible.windows.win_powershell:
         script: $env:COMPUTERNAME
       register: computer_info
 
     - debug:
-       var: computer_info.output
+        var: computer_info.output
