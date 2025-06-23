@@ -6,7 +6,8 @@
     - name: Ping Windows
       ansible.windows.win_ping:
 
-    - name: Get computer hostname
+    - name: Show Hostname
+      ansible.windows.win_powershell:
         script: |
           Write-Output "HELLO_WORLD"
       register: computer_info
