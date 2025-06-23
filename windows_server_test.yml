@@ -15,4 +15,4 @@
 
     - name: Show computer info
       ansible.builtin.debug:
-        var: computer_info.stdout
+        var: computer_info.output
