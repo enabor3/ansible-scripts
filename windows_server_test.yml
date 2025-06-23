@@ -8,27 +8,25 @@
       ansible.windows.win_ping:
 
     - name: Get Hostname
-      win_shell: hostname
+      ansible.windows.win_command: hostname
       register: hostname_out
 
     - name: Show Hostname
-      debug:
+      ansible.builtin.debug:
         var: hostname_out.stdout
 
     - name: Get OS Version
-      win_shell: |
-        (Get-CimInstance Win32_OperatingSystem).Caption
+      ansible.windows.win_command: ver
       register: os_out
 
     - name: Show OS Version
-      debug:
+      ansible.builtin.debug:
         var: os_out.stdout
 
     - name: Get IP Address
-      win_shell: |
-        (Get-NetIPAddress -AddressFamily IPv4 | Where-Object {$_.InterfaceAlias -notlike "*Loopback*"} | Select-Object -First 1 -ExpandProperty IPAddress)
+      ansible.windows.win_command: ipconfig
       register: ip_out
 
     - name: Show IP Address
-      debug:
+      ansible.builtin.debug:
         var: ip_out.stdout
