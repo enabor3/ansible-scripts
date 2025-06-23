@@ -4,9 +4,13 @@
   gather_facts: no
 
   tasks:
-    - name: Ping Servers
+    - name: Ping
       ansible.windows.win_ping:
 
     - name: Get Hostname
       ansible.windows.win_command: hostname
       register: hostname_out
+
+    - name: Show Hostname
+      ansible.builtin.debug:
+        var: hostname_out.stdout
