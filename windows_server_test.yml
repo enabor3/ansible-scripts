@@ -7,12 +7,10 @@
     - name: Ping Windows
       ansible.windows.win_ping:
 
-    - name: Get computer info via win_powershell
+    - name: Get computer hostname
       ansible.windows.win_powershell:
-        script: |
-          Get-ComputerInfo | Select-Object CsName, OsName | Out-String
+        script: $env:COMPUTERNAME
       register: computer_info
 
-    - name: Show computer info
-      ansible.builtin.debug:
-        var: computer_info.output
+    - debug:
+       var: computer_info.output
