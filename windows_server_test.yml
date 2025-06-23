@@ -4,13 +4,15 @@
   gather_facts: no
 
   tasks:
-    - name: Ping
+    - name: Ping Windows
       ansible.windows.win_ping:
 
-    - name: Get ComputerName via PowerShell
-      ansible.windows.win_shell: |
-        $env:COMPUTERNAME
-      register: computer_name
+    - name: Get computer info via win_powershell
+      ansible.windows.win_powershell:
+        script: |
+          Get-ComputerInfo | Select-Object CsName, OsName
+      register: computer_info
 
-    - debug:
-        var: computer_name.stdout
+    - name: Show computer info
+      ansible.builtin.debug:
+        var: computer_info.stdout
