@@ -10,7 +10,7 @@
     - name: Get computer info via win_powershell
       ansible.windows.win_powershell:
         script: |
-          Get-ComputerInfo | Select-Object CsName, OsName
+          Get-ComputerInfo | Select-Object CsName, OsName | Out-String
       register: computer_info
 
     - name: Show computer info
