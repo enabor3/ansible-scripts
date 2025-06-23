@@ -5,7 +5,7 @@
 
   tasks:
     - name: Ping Servers
-      ansible.builtin.ping:
+      ansible.windows.win_ping:
 
     - name: Get Hostname
       win_shell: hostname
